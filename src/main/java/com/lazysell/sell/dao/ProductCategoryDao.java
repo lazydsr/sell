@@ -15,4 +15,5 @@ import java.util.List;
  */
 public interface ProductCategoryDao extends JpaRepository<ProductCategory,Integer> {
     List<ProductCategory> findByCategoryNumIn(List<Integer> numList);
+
 }

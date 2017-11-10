@@ -47,6 +47,13 @@
 			<artifactId>lombok</artifactId>
 		</dependency>
 		<!--日志相关-->
+		<!--自定义工具类-->
+		<dependency>
+			<groupId>com.lazy</groupId>
+			<artifactId>lazy-utils</artifactId>
+            <version>1.0.4</version>
+		</dependency>
+		<!--自定义工具类-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

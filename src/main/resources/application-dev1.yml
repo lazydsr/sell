@@ -3,8 +3,8 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://qdm163903142.my3w.com:3306/qdm163903142_db?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: qdm163903142
-    password: yanzi123
+    url: jdbc:mysql://172.25.1.233/sell?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
   jpa:
     show-sql: true
