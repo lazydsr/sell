@@ -1,3 +1,5 @@
 spring:
   profiles:
-    active: dev1
+    active: dev
+server:
+  context-path: /sell

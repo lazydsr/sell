@@ -29,7 +29,7 @@ public class ProductCategory {
     /**
      * 类目编号
      */
-    private Integer categoryNum;
+    private Integer categoryType;
     /**
      * 创建时间
      */

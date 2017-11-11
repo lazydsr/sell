@@ -40,7 +40,7 @@ public class ProductInfo {
     /**
      * 商品图标  -小图
      */
-    private String priductIcon;
+    private String productIcon;
     /**
      * 商品状态
      */
@@ -48,7 +48,7 @@ public class ProductInfo {
     /**
      * 商品类目编号
      */
-    private Integer categoryNum;
+    private Integer categoryType;
     /**
      * 创建时间
      */

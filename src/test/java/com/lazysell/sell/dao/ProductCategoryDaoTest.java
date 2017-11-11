@@ -42,13 +42,13 @@ public class ProductCategoryDaoTest {
     public void saveOneTest() {
         ProductCategory category = productCategoryDao.findOne(2);
 
-        category.setCategoryNum(13);
+        category.setCategoryType(13);
         productCategoryDao.save(category);
         System.out.println(productCategoryDao.findAll());
     }
     @Test
     public void findByProductCategoryNumInTest(){
-        List<ProductCategory> result = productCategoryDao.findByCategoryNumIn(Arrays.asList(2, 5, 4));
+        List<ProductCategory> result = productCategoryDao.findByCategoryTypeIn(Arrays.asList(2, 5, 4));
         Assert.assertNotEquals(0,result.size());
     }
 }

@@ -31,7 +31,7 @@ public class ProductInfoDaoTest {
         productInfo.setProductName("mobile");
         productInfo.setProductPrice(new BigDecimal(100));
         productInfo.setProductStock(110);
-        productInfo.setCategoryNum(10);
+        productInfo.setCategoryType(10);
         productInfo.setProductStatus(1);
 
         ProductInfo info = productInfoDao.save(productInfo);

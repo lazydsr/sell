@@ -1,12 +1,17 @@
 package com.lazysell.sell.service.impl;
 
 import com.lazysell.sell.dao.ProductInfoDao;
+import com.lazysell.sell.dto.CartDTO;
 import com.lazysell.sell.enums.ProductStatusEnum;
+import com.lazysell.sell.enums.ResultEnum;
+import com.lazysell.sell.exception.SellException;
 import com.lazysell.sell.pojo.ProductInfo;
-import com.lazysell.sell.service.ProductInfoService;
+import com.lazysell.sell.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,7 +23,8 @@ import java.util.List;
  * Version: 0.1
  * Info: @TODO:...
  */
-public class ProductInfoServiceImpl implements ProductInfoService {
+@Service
+public class ProductInfoServiceImpl implements ProductService {
     @Autowired
     private ProductInfoDao productInfoDao;
 
@@ -40,6 +46,39 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     @Override
     public ProductInfo save(ProductInfo productInfo) {
         return productInfoDao.save(productInfo);
+    }
+
+    @Override
+    @Transactional
+    public void increaseStock(List<CartDTO> cartDTOList) {
+        for (CartDTO cartDTO : cartDTOList) {
+            ProductInfo productInfo = productInfoDao.findOne(cartDTO.getProductId());
+            if (productInfo == null) {
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+            if (cartDTO.getProductQuantity() < 0) {
+                throw new SellException(ResultEnum.INCREATE_STOCK_ERROR);
+            }
+            productInfo.setProductStock(productInfo.getProductStock() + cartDTO.getProductQuantity());
+            productInfoDao.save(productInfo);
+        }
+    }
+
+    @Override
+    @Transactional
+    public void decreaseStock(List<CartDTO> cartDTOList) {
+        for (CartDTO cartDTO : cartDTOList) {
+            ProductInfo productInfo = productInfoDao.findOne(cartDTO.getProductId());
+            if (productInfo == null) {
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+            Integer result = productInfo.getProductStock() - cartDTO.getProductQuantity();
+            if (result < 0) {
+                throw new SellException(ResultEnum.PRODUCT_STOCK_ERROR);
+            }
+            productInfo.setProductStock(result);
+            productInfoDao.save(productInfo);
+        }
     }
 
 }
