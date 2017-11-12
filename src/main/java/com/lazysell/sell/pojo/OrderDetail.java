@@ -6,6 +6,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * OrderDetail
@@ -27,7 +28,7 @@ public class OrderDetail {
     private BigDecimal productPrice;
     private Integer productQuantity;
     private String productIcon;
-    private String createTime;
-    private String updateTime;
+    private Date createTime;
+    private Date updateTime;
 
 }

@@ -37,7 +37,8 @@ public class OrderMasterDaoTest {
         orderMaster.setBuyerName("光头强1111");
         orderMaster.setBuyerOpenid("123456");
         orderMaster.setBuyerPhone("13222222222");
-        dao.save(orderMaster);
+        OrderMaster master = dao.save(orderMaster);
+        System.out.println(master);
     }
 
     @Test

@@ -1,13 +1,16 @@
 package com.lazysell.sell.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.lazysell.sell.enums.OrderStatusEnum;
 import com.lazysell.sell.enums.PayStatusEnum;
+import com.lazysell.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * OrderMaster
@@ -33,7 +36,7 @@ public class OrderMaster {
      */
     private Integer orderStatus = OrderStatusEnum.NEW_ORDER.getCode();
     private Integer payStatus = PayStatusEnum.WAIT.getCode();
-    private String createTime;
-    private String updateTime;
+    private Date createTime;
+    private Date updateTime;
 
 }
