@@ -1,7 +1,10 @@
 spring:
   profiles:
-    active: dev
+    active: dev1
   jackson:
     default-property-inclusion: non_null
 server:
   context-path: /sell
+wechat:
+  mpAppId: wxdc20d7dad12356fa
+  mpAppSecret: 920c69c064cebc705205fb814b13a3bb

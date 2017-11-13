@@ -60,6 +60,13 @@
             <version>1.0.4</version>
 		</dependency>
 		<!--自定义工具类-->
+		<!--微信第三方sdk-->
+		<dependency>
+			<groupId>com.github.binarywang</groupId>
+			<artifactId>weixin-java-mp</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<!--微信第三方sdk-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
